@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: akscalculator 
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: akscalculator
+  template:
+    metadata:
+      labels:
+        app: akscalculator 
+    spec:
+      containers:
+        - name: akscalculator
+          image: acrzerodemo.azurecr.io/akscalculator:v1
+          ports:
+          - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+    name: akscalculator
+spec:
+    type: LoadBalancer
+    ports:
+    - port: 80 
+    selector:
+        app: akscalculator

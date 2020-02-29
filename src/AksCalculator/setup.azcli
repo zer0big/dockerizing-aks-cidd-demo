@@ -1,0 +1,6 @@
+docker image ls
+docker build -t logion/akscalculator .
+docker run -d -p 8081:80 --name mycalculator1 logion/akscalculator
+docker run -d -p 8082:80 --name mycalculator2 logion/akscalculator
+docker run -d -p 8083:80 --name mycalculator3 logion/akscalculator
+docker ps -a

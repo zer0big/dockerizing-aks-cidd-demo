@@ -1,0 +1,7 @@
+az login 
+
+az account set --subscription e5f7dd5e-1d90-4344-9ad1-39f7811170c0
+
+az acr build --image "akscalculator:v1" \
+    --registry acrzodizorto \
+    --file Dockerfile . 
